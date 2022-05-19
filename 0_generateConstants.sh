@@ -15,7 +15,7 @@ for ((i=1;i<=$n;i++)); do
 done
 
 
-line=2078
+line=2075
 for ((i=1;i<=$n;i++)); do
     sed -i "$line i\  EXAMPLES_PRIVATE_KEY$i," $SDK_PATH/constants_generate.js
     line=$(($line + 1)) 

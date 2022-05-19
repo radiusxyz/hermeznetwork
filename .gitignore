@@ -58,6 +58,8 @@ hermezjs/dist
 # Misc
 hermezjs/auxdata
 hermezjs/contracts
+
+hermezjs/examples/constants_generate.js
 ############
 
 ############go-ethereum
