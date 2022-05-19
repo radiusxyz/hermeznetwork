@@ -7,6 +7,7 @@ hermez-node/proofCalculationTime.txt
 hermez-node/cmd/heznode/cfg.builder.toml
 hermezjs/examples/constants.js
 hermezjs/src/constants.js
+hermezjs/yarn.lock
 
 
 
