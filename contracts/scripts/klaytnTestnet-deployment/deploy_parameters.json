@@ -12,13 +12,13 @@
     "initialWithdrawalDelay": 3600,
     "bootCoordinatorURL": "http://localhost:8086",
     "maxTxVerifier": [
-      400, 400,2048,2048
+      400, 2048
     ],
     "nLevelsVerifer": [
-      32, 32,32,32
+      32, 32
     ],
     "verifierType": [ 
-      "mock", "real","mock", "real"
+      "mock" ,"mock"
     ],
     "hermezGovernanceAddress": "",
     "emergencyCouncilAddress": "",
