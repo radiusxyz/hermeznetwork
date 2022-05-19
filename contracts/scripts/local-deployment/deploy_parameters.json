@@ -1,0 +1,57 @@
+{
+  "hardhatNetwork": "localhostMnemonic",
+  "test": true,
+  "mnemonic": "explain tackle mirror kit van hammer degree position ginger unfair soup bonus",
+  "1337": {
+    "numAccountsFund": 10,
+    "genesisBlock": "",
+    "genesisBlockOffsetCurrent": 81,
+    "feeAddToken": 10,
+    "forgeL1L2BatchTimeout": 10,
+    "withdrawalDelayHermez": 1209600,
+    "initialWithdrawalDelay": 3600,
+    "bootCoordinatorURL": "http://localhost:8086",
+    "maxTxVerifier": [
+      512, 344, 1912
+    ],
+    "nLevelsVerifer": [
+      32, 32, 32
+    ],
+    "verifierType": [ 
+      "mock", "real", "real"
+    ],
+    "hermezGovernanceAddress": "",
+    "emergencyCouncilAddress": "",
+    "donationAddress": "",
+    "bootCoordinatorAddress": "",
+    "libVerifiersAddress": [],
+    "libPoseidonsAddress": [],
+    "libVerifiersWithdrawAddress": ""
+  },
+  "4": {
+    "hermezGovernanceAddress": "",
+    "emergencyCouncilAddress": "",
+    "donationAddress": "",
+    "bootCoordinatorAddress": "",
+    "genesisBlock": "",
+    "genesisBlockOffsetCurrent": 0,
+    "feeAddToken": 10,
+    "forgeL1L2BatchTimeout": 10,
+    "withdrawalDelayHermez": 1209600,
+    "initialWithdrawalDelay": 60,
+    "bootCoordinatorURL": "http://localhost:8086",
+    "maxTxVerifier": [
+      512, 376, 376
+    ],
+    "nLevelsVerifer": [
+      32, 32, 32
+    ],
+    "verifierType": [ 
+      "mock", "mock", "real"
+    ],
+    "libVerifiersAddress": [],
+    "libposeidonsAddress": [],
+    "libVerifiersWithdrawAddress": ""
+  },
+  "pathOutputJson": ""
+}

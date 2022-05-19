@@ -1,0 +1,90 @@
+{
+  "name": "@hermeznetwork/hermezjs",
+  "version": "1.2.0",
+  "description": "Hermez SDK",
+  "homepage": "https://github.com/hermeznetwork/hermezjs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermeznetwork/hermezjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hermeznetwork/hermezjs/issues"
+  },
+  "main": "dist/node/index.js",
+  "module": "src/index.js",
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./dist/node/index.js"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start-local-blockchain": "npx ganache-cli > /dev/null &",
+    "stop-local-blockchain": "./tests/helpers/stop-local-blockchain.sh",
+    "build-node": "babel src --out-dir dist/node",
+    "prebuild": "rm -rf dist",
+    "prepublishOnly": "npm run build-node",
+    "test": "jest",
+    "test:integration": "jest --forceExit --detectOpenHandles ./tests/integration/*",
+    "test:unit": "npm run start-local-blockchain && jest ./tests/unit/* && npm run stop-local-blockchain",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@ethersproject/keccak256": "^5.0.7",
+    "@ledgerhq/hw-app-eth": "^5.35.1",
+    "@ledgerhq/hw-transport-webusb": "^5.40.0",
+    "axios": "^0.21.1",
+    "base64url": "^3.0.1",
+    "circomlib": "^0.5.2",
+    "core-js": "^3.8.1",
+    "ethers": "^5.1.4",
+    "ffjavascript": "^0.2.35",
+    "graceful-fs": "4.2.4",
+    "js-sha3": "^0.8.0",
+    "node-localstorage": "^2.1.6",
+    "snarkjs": "^0.3.60",
+    "trezor-connect": "^8.1.19"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.11.0",
+    "ganache-cli": "^6.12.2",
+    "husky": "^4.3.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.4.2",
+    "standard": "^15.0.0"
+  },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=7"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": [
+      "browser",
+      "jest",
+      "node"
+    ],
+    "ignore": [
+      "src/abis",
+      "fee-factors.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,cjs}": "standard --fix"
+  }
+}

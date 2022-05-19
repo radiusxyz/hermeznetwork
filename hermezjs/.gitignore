@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+
+# Node
+node_modules
+
+# Editors and IDEs
+.*swp
+.vscode
+
+# Environment
+.env
+
+# Testing
+.testlog
+
+# Build
+dist
+
+# Misc
+auxdata
+contracts
