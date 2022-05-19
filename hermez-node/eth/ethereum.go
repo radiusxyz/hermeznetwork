@@ -269,7 +269,8 @@ func (c *EthereumClient) EthBlockByNumber(ctx context.Context, number int64) (*c
 		Num:        header.Number.Int64(),
 		Timestamp:  time.Unix(int64(header.Time), 0),
 		ParentHash: header.ParentHash,
-		Hash:       header.Hash(),
+		Hash:       header.BlockHash,
+		// Hash:       header.Hash(),
 	}
 	return b, nil
 }

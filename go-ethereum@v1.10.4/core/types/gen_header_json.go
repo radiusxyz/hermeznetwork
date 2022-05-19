@@ -51,7 +51,8 @@ func (h Header) MarshalJSON() ([]byte, error) {
 	enc.MixDigest = h.MixDigest
 	enc.Nonce = h.Nonce
 	enc.BaseFee = (*hexutil.Big)(h.BaseFee)
-	enc.Hash = h.Hash()
+	enc.Hash = h.BlockHash
+	// enc.Hash = h.Hash()
 	return json.Marshal(&enc)
 }
 
@@ -74,6 +75,7 @@ func (h *Header) UnmarshalJSON(input []byte) error {
 		MixDigest   *common.Hash    `json:"mixHash"`
 		Nonce       *BlockNonce     `json:"nonce"`
 		BaseFee     *hexutil.Big    `json:"baseFeePerGas" rlp:"optional"`
+		BlockHash *common.Hash `json:"hash"`
 	}
 	var dec Header
 	if err := json.Unmarshal(input, &dec); err != nil {
@@ -139,6 +141,10 @@ func (h *Header) UnmarshalJSON(input []byte) error {
 	}
 	if dec.BaseFee != nil {
 		h.BaseFee = (*big.Int)(dec.BaseFee)
+	}
+	h.BlockHash = *dec.BlockHash
+	if dec.BlockHash == nil {
+		return errors.New("missing required field 'hash' for Header")
 	}
 	return nil
 }
