@@ -317,6 +317,7 @@ func NewRollupClient(client *EthereumClient, address ethCommon.Address) (*Rollup
 
 // RollupForgeBatch is the interface to call the smart contract function
 func (c *RollupClient) RollupForgeBatch(args *RollupForgeBatchArgs, auth *bind.TransactOpts) (tx *types.Transaction, err error) {
+	// fmt.Printf("RollupForgeBatchArgs:%#v\n", args)
 	if auth == nil {
 		auth, err = c.client.NewAuth()
 		if err != nil {
@@ -381,6 +382,11 @@ func (c *RollupClient) RollupForgeBatch(args *RollupForgeBatchArgs, auth *bind.T
 		}
 		feeIdxCoordinator = append(feeIdxCoordinator, bytesFeeIdx[len(bytesFeeIdx)-int(lenBytes):]...)
 	}
+
+	fmt.Printf("l1CoordinatorBytes size:%v\n", len(l1CoordinatorBytes))
+	fmt.Printf("l1l2TxData size:%v\n", len(l1l2TxData))
+	fmt.Printf("feeIdxCoordinator size:%v\n", len(feeIdxCoordinator))
+
 	tx, err = c.hermez.ForgeBatch(auth, newLastIdx, args.NewStRoot, args.NewExitRoot,
 		l1CoordinatorBytes, l1l2TxData, feeIdxCoordinator, args.VerifierIdx, args.L1Batch,
 		args.ProofA, args.ProofB, args.ProofC)
@@ -417,6 +423,7 @@ func (c *RollupClient) RollupAddToken(tokenAddress ethCommon.Address, feeAddToke
 	); err != nil {
 		return nil, tracerr.Wrap(fmt.Errorf("Failed add Token %w", err))
 	}
+	// fmt.Printf("RollupForgeBatch, tx:%+v", tx)
 	return tx, nil
 }
 
@@ -770,14 +777,17 @@ func (c *RollupClient) RollupEventInit(genesisBlockNum int64) (*RollupEventIniti
 // If there are no events in that block the result is nil.
 func (c *RollupClient) RollupEventsByBlock(blockNum int64,
 	blockHash *ethCommon.Hash) (*RollupEvents, error) {
+
 	var rollupEvents RollupEvents
 
 	var blockNumBigInt *big.Int
-	if blockHash == nil {
-		blockNumBigInt = big.NewInt(blockNum)
-	}
+	// if blockHash == nil {
+	// 	blockNumBigInt = big.NewInt(blockNum)
+	// }
+	blockNumBigInt = big.NewInt(blockNum)
+
 	query := ethereum.FilterQuery{
-		BlockHash: blockHash,
+		BlockHash: nil,
 		FromBlock: blockNumBigInt,
 		ToBlock:   blockNumBigInt,
 		Addresses: []ethCommon.Address{
@@ -785,7 +795,10 @@ func (c *RollupClient) RollupEventsByBlock(blockNum int64,
 		},
 		Topics: [][]ethCommon.Hash{},
 	}
+	// fmt.Printf("query:%+v\n", query)
 	logs, err := c.client.client.FilterLogs(context.Background(), query)
+	// fmt.Printf("RollupEventsByBlock - blockNum:%+v\n", blockNum)
+	// fmt.Printf("logs:%+v\n", logs)
 	if err != nil {
 		return nil, tracerr.Wrap(err)
 	}

@@ -28,9 +28,9 @@ DOCKER_BUILD_FILE = build/Dockerfile
 
 # Project configs.
 MODE ?= sync
-CONFIG ?= $(GOBASE)/cmd/heznode/cfg.buidler.toml
+CONFIG ?= $(GOBASE)/cmd/heznode/cfg.builder.toml
 PGHOST ?= localhost
-PGPORT ?= 4012
+PGPORT ?= 5432
 PGUSER ?= hermez
 PGPASSWORD ?= yourpasswordhere
 PGDATABASE ?= hermez

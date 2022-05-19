@@ -1,0 +1,32 @@
+{
+  "hardhatNetwork": "klaytn",
+  "test": false,
+  "mnemonic": "clean recycle slow mango hint motion cliff light feed perfect scan neglect",
+  "1001": {
+    "numAccountsFund": 10,
+    "genesisBlock": "",
+    "genesisBlockOffsetCurrent": 20,
+    "feeAddToken": 10,
+    "forgeL1L2BatchTimeout": 10,
+    "withdrawalDelayHermez": 1209600,
+    "initialWithdrawalDelay": 3600,
+    "bootCoordinatorURL": "http://localhost:8086",
+    "maxTxVerifier": [
+      400, 400,2048,2048
+    ],
+    "nLevelsVerifer": [
+      32, 32,32,32
+    ],
+    "verifierType": [ 
+      "mock", "real","mock", "real"
+    ],
+    "hermezGovernanceAddress": "",
+    "emergencyCouncilAddress": "",
+    "donationAddress": "",
+    "bootCoordinatorAddress": "",
+    "libVerifiersAddress": [],
+    "libPoseidonsAddress": [],
+    "libVerifiersWithdrawAddress": ""
+  },
+  "pathOutputJson": ""
+}

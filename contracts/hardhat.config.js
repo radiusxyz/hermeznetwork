@@ -11,7 +11,7 @@ require("hardhat-spdx-license-identifier");
 require("@openzeppelin/hardhat-upgrades");
 
 const DEFAULT_MNEMONIC =
-  "explain tackle mirror kit van hammer degree position ginger unfair soup bonus";
+  "clean recycle slow mango hint motion cliff light feed perfect scan neglect";
 
 module.exports = {
   defaultNetwork: "hardhat",
@@ -28,7 +28,6 @@ module.exports = {
         initialIndex: 0,
         count: 20,
       },
-      gasPrice: 140000000000 // 140 gwei
     },
     localhostMnemonic: {
       url: "http://127.0.0.1:8545",
@@ -48,6 +47,18 @@ module.exports = {
         initialIndex: 0,
         count: 20,
       },
+    },
+    klaytn: {
+      url: "http://147.46.240.229:8551",
+      accounts: {
+        mnemonic: process.env.MNEMONIC || DEFAULT_MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+      },
+      // gas: 0xFEBC20,
+      gas: 0xFFFFFFFF,
+      gasPrice: 250000000000,
     },
     reporter: {
       gas: 5000000,
@@ -73,7 +84,6 @@ module.exports = {
         initialIndex: 0,
         count: 20,
       },
-      gasPrice: 4000000000 //4 gwei
     },
     ropsten: {
       url: `https://ropsten.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
