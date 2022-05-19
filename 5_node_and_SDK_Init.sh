@@ -29,8 +29,9 @@ sed -i "s/ContractNames.Hermez]: ''/ContractNames.Hermez]: '$HERMEZ_ROLLUP_ADDRE
 sed -i "s/ContractNames.WithdrawalDelayer]: ''/ContractNames.WithdrawalDelayer]: '$HERMEZ_WDELAYER_ADDRESS'/g" $SDK_SOURCE_PATH/constants.js
 
 
-cd $SDK_PATH
-yarn build-node
+cd $HERMEZ_PATH/hermezjs
+source buildSDK.sh $initFlag
+
 
 # NODE_PATH="$HERMEZ_PATH/hermez-node"
 # cd $NODE_PATH
