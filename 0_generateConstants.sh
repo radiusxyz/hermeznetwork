@@ -1,5 +1,5 @@
-#constants_empty.js를 사용해서 constants_generate.js를 생성
 #!/bin/bash 
+#constants_empty.js를 사용해서 constants_generate.js를 생성
 source ./env.sh
 
 

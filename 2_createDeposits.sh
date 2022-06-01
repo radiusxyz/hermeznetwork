@@ -1,5 +1,5 @@
-#hermezjs에서 deposit할 js파일 생성
 #!/bin/bash 
+#hermezjs에서 deposit할 js파일 생성
 source ./env.sh
 
 DEPOSIT_PATH=$SDK_PATH/deposits
@@ -19,3 +19,4 @@ for ((i=1;i<=$numAccount;i++)); do
     cp -f $SDK_PATH/creates-accounts-deposits_empty.js $DEPOSIT_PATH/creates-accounts-deposits$i.js
     sed -i "s/EXAMPLES_PRIVATE_KEY_A/EXAMPLES_PRIVATE_KEY$i/g" $DEPOSIT_PATH/creates-accounts-deposits$i.js
 done
+

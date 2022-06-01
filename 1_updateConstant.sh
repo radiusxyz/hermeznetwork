@@ -1,5 +1,5 @@
-#constants_generate.js를 사용해서 constants.js를 생성
 #!/bin/bash 
+#constants_generate.js를 사용해서 constants.js를 생성
 source ./env.sh
 
 rm -f $SDK_PATH/constants.js

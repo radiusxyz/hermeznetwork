@@ -14,7 +14,7 @@ sed -i "s/MaxTx = 400/MaxTx = $MaxTx/g" $NODE_PATH/cmd/heznode/cfg.builder.toml
 
 
 
-
+# constants.js에서 5번째 6번째 줄 삭제
 sed -i "5d;6d" $SDK_PATH/constants.js
 sleep 3s
 

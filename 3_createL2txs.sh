@@ -1,5 +1,5 @@
-#hermezjs에서 Layer2끼리 transfer할 js파일 생성
 #!/bin/bash 
+#hermezjs에서 Layer2끼리 transfer할 js파일 생성
 source ./env.sh
 
 L2TX_PATH=$SDK_PATH/l2txs
